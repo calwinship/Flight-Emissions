@@ -1,4 +1,11 @@
 import requests 
+from dotenv import load_dotenv
+
+load_dotenv()
+
+api_key = os.getenv("API_KEY")
+
+
 	# 18 Mar 2024	New York (JFK)	London (LHR)	77W
 flight_data = {
     "flights": [
@@ -18,7 +25,7 @@ flight_data = {
 
 
 
-url = "https://travelimpactmodel.googleapis.com/v1/flights:computeFlightEmissions?key=AIzaSyD7N-5WoOw18POQIXewMmBW7wedVptiAas"
+url = f"https://travelimpactmodel.googleapis.com/v1/flights:computeFlightEmissions?key={api_key}"
 headers = {
     "Content-Type": "application/json"
 }
