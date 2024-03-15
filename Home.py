@@ -11,15 +11,17 @@ api_key = os.getenv("API_KEY")
 # Streamlit app title
 st.title('Flight Emission Calculator')
 
+st.write("This app calculates the CO2 emissions of a flight based on the flight details provided. The flight must be in the future.")
+
 # Form for flight details
 with st.form("flight_info"):
-    origin = st.text_input("Origin airport code (e.g., LHR):")
-    destination = st.text_input("Destination airport code (e.g., JFK):")
+    origin = st.text_input("Origin airport code (e.g., JFK):")
+    destination = st.text_input("Destination airport code (e.g., LHR):")
     carrier_code = st.text_input("Carrier code (e.g., AA):")
     flight_number = st.number_input("Flight number:", min_value=1, value=100, format="%d")
     year = st.number_input
 
-    year = st.number_input("Year:", min_value=2023, max_value=2100, value=2024, format="%d")
+    year = st.number_input("Year:", min_value=2024, max_value=2100, value=2024, format="%d")
     month = st.number_input("Month:", min_value=1, max_value=12, value=1, format="%d")
     day = st.number_input("Day:", min_value=1, max_value=31, value=1, format="%d")
 
