@@ -1,6 +1,11 @@
 import streamlit as st
 import requests
 import matplotlib.pyplot as plt
+from dotenv import load_dotenv
+
+load_dotenv()
+
+api_key = os.getenv("API_KEY")
 
 # Streamlit app title
 st.title('Flight Emission Calculator')
@@ -37,8 +42,10 @@ if submit_button:
         ]
     }
 
+
+
     # API endpoint
-    url = "https://travelimpactmodel.googleapis.com/v1/flights:computeFlightEmissions?key=AIzaSyD7N-5WoOw18POQIXewMmBW7wedVptiAas"
+    url = f"https://travelimpactmodel.googleapis.com/v1/flights:computeFlightEmissions?key={api_key}"
     
     # Replace YOUR_API_KEY with your actual API key
 # key=API_KEY
@@ -78,3 +85,5 @@ if submit_button:
         st.pyplot(fig)
     else:
         st.error("No flight emissions data found.")
+
+
